@@ -1,0 +1,48 @@
+footer > button {
+	width: auto;
+	height: 20px;
+	margin: 5px;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: yellow;
+	left: 0;
+	padding-left: 50%
+	padding-right: 50%;	
+	height: 50px;
+}
+
+#displaySummary {
+	position: fixed;
+	bottom: 50px;
+	right: 0;
+	background-color: green;
+	
+}
+
+.ballBox(){
+	width: 50px;
+	background-color: red;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/*table, td, th {
+  border: 1px solid black;
+}*/
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+table input {
+	width: 50px;
+}
+
+.lastGap {
+	margin-bottom: 50px;
+}
