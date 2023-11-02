@@ -71,7 +71,9 @@ function onloadReady(){
 
 	inputs.forEach(function(input) {
 	  input.addEventListener("focus", function() {
+	  	this.setAttribute('readonly', 'readonly')
 	    focusedInput = this;
+	    
 	  });
 	});
 
