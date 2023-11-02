@@ -1,7 +1,7 @@
 footer > button {
 	width: auto;
 	height: 20px;
-	margin: 5px;
+	margin: 4px;
 }
 
 footer {
@@ -40,7 +40,7 @@ table {
 }
 
 table input {
-	width: 50px;
+	width: 30px;
 }
 
 .lastGap {
