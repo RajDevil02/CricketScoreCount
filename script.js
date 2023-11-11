@@ -45,7 +45,7 @@ function tableDisplay(){
     	  createTextBox.type = 'text';
     	  createTextBox.className = "myInput"
      	  //createTextBox.setAttribute('onchange','changeColor1(this.parentNode)')
-     	  createTextBox.value = 0;
+     	  //createTextBox.value = 0;
          
           td.appendChild(createTextBox)
           tr.appendChild(td);
@@ -63,10 +63,10 @@ function tableDisplay(){
 
 
 function onloadReady(){
-	var setFirstValue = document.querySelector(".myInput")
-	setFirstValue.value = parseInt(0)
+
 	var inputs = Array.from(document.getElementsByClassName("myInput"));
 	var buttons = Array.from(document.getElementsByClassName("myButton"));
+	var extrasButton = Array.from(document.getElementsByClassName("addBall"))
 	var focusedInput = null;
 
 	inputs.forEach(function(input) {
@@ -81,6 +81,33 @@ function onloadReady(){
 	  button.addEventListener("click", function() {
 	    if (focusedInput) {
 	      focusedInput.value = this.value;
+	      var inputs = Array.from(document.getElementsByClassName("myInput"));
+	      var index = inputs.indexOf(focusedInput);
+	      if (index < inputs.length) {
+	      	inputs[index].focus();
+	        inputs[index + 1].focus();
+		      }
+		    }
+		  });
+		});
+
+	extrasButton.forEach(function(button) {
+	  button.addEventListener("click", function() {
+	    if (focusedInput) {
+	    	focusedInput.value = this.value;
+	    	var index = inputs.indexOf(focusedInput);
+	    	var parentNode = inputs[index].parentNode.parentNode
+	    	var createExtraCell = document.createElement("td")
+	    	var createExtraCellInput = document.createElement("input")
+	    	createExtraCellInput.type = 'text';
+    	    createExtraCellInput.className = "myInput";
+    	    createExtraCellInput.setAttribute('readonly','readonly')
+     	  //createTextBox.setAttribute('onchange','changeColor1(this.parentNode)')
+     	  createExtraCellInput.value = 0;
+         
+          createExtraCell.appendChild(createExtraCellInput)
+          parentNode.appendChild(createExtraCell);
+          inputs = Array.from(document.getElementsByClassName("myInput"));
 	      var index = inputs.indexOf(focusedInput);
 	      if (index < inputs.length) {
 	      	inputs[index].focus();
@@ -123,7 +150,7 @@ function sumOvers(sums){
 	
 	var total = 0;
 	for(var i=0; i<sums.length;i++){
-		if (sums[i] == "Wd" || sums[i]=="NB" || sums[i]=="Out") {
+		if (sums[i].value == "Wd" || sums[i].value=="NB" || sums[i].value=="Out" || sums[i].value == "") {
 			continue;
 		}
 		else{
